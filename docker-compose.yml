@@ -1,0 +1,50 @@
+app:
+  build: .
+  command: rails server -p 3000 -b '0.0.0.0' --pid /app/tmp/pids/server_app.pid
+  volumes:
+    - .:/app
+  ports:
+    - "3000"
+  links:
+    - postgres
+
+app2:
+  build: .
+  command: rails server -p 3000 -b '0.0.0.0' --pid /app/tmp/pids/server_app2.pid
+  volumes:
+    - .:/app
+  ports:
+    - "3000"
+  links:
+    - postgres
+
+app3:
+  build: .
+  command: rails server -p 3000 -b '0.0.0.0' --pid /app/tmp/pids/server_app3.pid
+  volumes:
+    - .:/app
+  ports:
+    - "3000"
+  links:
+    - postgres
+
+postgres:
+  image: postgres:9.4
+  ports:
+    - "5432"
+
+haproxy:
+  image: haproxy:1.5
+  volumes:
+   - "./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg"
+  links:
+   - app
+   - app2
+   - app3
+  ports:
+   - "80:80"
+   - "70:70"
+
+  expose:
+   - "80"
+   - "70"
