@@ -1,7 +1,10 @@
 # HAproxy with Rails App and Postgres running on Docker using Docker Compose
 
-HAProxy Admin Port 70
-HAProxy Port 80
+Important Ports:
+* HAProxy Admin Port 70
+* HAProxy Port 80
+* MailCatcher 1080
+
 
 #### Preparations
 ```shell
@@ -25,5 +28,10 @@ If you use boot2docker you can run `boot2docker ip`
 * [docker-compose.yml](https://github.com/scudelletti/haproxy_docker_rails_demo/blob/master/docker-compose.yml)
 * [haproxy.cfg](https://github.com/scudelletti/haproxy_docker_rails_demo/blob/master/haproxy/haproxy.cfg)
 
+### Useful commands
 
-::whale:
+* List Env Variables `docker-compose run app env
+* Run Tests the -e is Optional `docker-compose run -e "RAILS_ENV=test" app rake test`
+* Start just one container `docker-compose up mailcatcher`
+
+:whale:
