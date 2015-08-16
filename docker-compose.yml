@@ -7,6 +7,7 @@ app:
     - "3000"
   links:
     - postgres
+    - mailcatcher
 
 app2:
   build: .
@@ -17,6 +18,7 @@ app2:
     - "3000"
   links:
     - postgres
+    - mailcatcher
 
 app3:
   build: .
@@ -27,6 +29,12 @@ app3:
     - "3000"
   links:
     - postgres
+    - mailcatcher
+
+mailcatcher:
+  image: schickling/mailcatcher
+  ports:
+    - "1080:1080"
 
 postgres:
   image: postgres:9.4
@@ -41,6 +49,7 @@ haproxy:
    - app
    - app2
    - app3
+   - mailcatcher
   ports:
    - "80:80"
    - "70:70"
