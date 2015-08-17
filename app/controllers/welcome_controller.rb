@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    SomethingMailer.welcome_mail(hostname).deliver_now
+    SomethingMailer.welcome_mail(hostname).deliver_later(wait: 1.minute)
 
     render text: "RAILS APP - HOSTNAME: #{hostname}"
   end
