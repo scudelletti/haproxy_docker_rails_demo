@@ -9,6 +9,12 @@ class WelcomeController < ApplicationController
     head 200
   end
 
+  def debug
+    require 'pry'; binding.pry;
+
+    render text: 'OK'
+  end
+
   private
 
   def hostname

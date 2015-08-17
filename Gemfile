@@ -9,6 +9,8 @@ gem 'pg'
 gem 'sidekiq'
 # Sinatra is necessary for Sidekiq Web Interface
 gem 'sinatra'
+# Pry Debugger
+gem 'pry-byebug'
 
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
