@@ -23,9 +23,9 @@ Don't forget to access the right Docker IP.
 `docker-machine ls`
 
 ##### Useful routes
-'/' - will add and email on worker and respond with an text
-'/debug' - will call pry debugger - Please read Caveats before acessing.
-'/sidekiq' - Sidekiq Monitor
+* `/` - will add and email on worker and respond with an text
+* `/debug` - will call pry debugger - Please read Caveats before acessing.
+* `/sidekiq` - Sidekiq Monitor
 
 
 #### Important files:
