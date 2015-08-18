@@ -40,6 +40,8 @@ Don't forget to access the right Docker IP.
 * List Env Variables `docker-compose run app env
 * Run Tests the -e is Optional `docker-compose run -e "RAILS_ENV=test" app rake test`
 * Start just one container `docker-compose up mailcatcher`
+* Logs for specific app `docker-compose logs postgres`
+* Start app with TTY and service ports working `docker-compose run --service-ports app`
 
 ### Caveats: Debug
 
